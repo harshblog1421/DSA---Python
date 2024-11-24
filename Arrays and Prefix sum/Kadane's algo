@@ -1,0 +1,12 @@
+class Solution:
+    # @param A : tuple of integers
+    # @return an integer
+    def maxSubArray(self, A):
+        curr_sum = 0
+        max_sum = -10000000
+        for i in range(len(A)):
+            curr_sum = A[i]+ max(curr_sum,0)
+
+            max_sum =  max(curr_sum,max_sum)
+
+        return max_sum
