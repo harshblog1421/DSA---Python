@@ -1,0 +1,15 @@
+You are given a 2D integer matrix A, return a 1D integer array containing column-wise sums of original matrix.
+
+Code:
+class Solution:
+    # @param A : list of list of integers
+    # @return a list of integers
+    def solve(self, A):
+        Sum_column = []
+        for i in range(len(A[0])):
+            sum1 = 0
+            for j in range(len(A)):
+                sum1+=A[j][i]
+            Sum_column.append(sum1)
+
+        return Sum_column
