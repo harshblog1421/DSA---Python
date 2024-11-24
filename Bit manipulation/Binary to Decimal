@@ -1,0 +1,12 @@
+def binary_to_decimal_process(binary_str):
+    decimal_number = 0
+    power = 0
+
+    # Traverse the binary number from right to left
+    for digit in reversed(binary_str):
+        decimal_number += int(digit) * (2 ** power)  # Multiply each digit by 2 raised to its position
+        power += 1  # Increment the power for the next bit
+
+    return decimal_number
+
+
