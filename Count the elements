@@ -1,0 +1,14 @@
+Given an array A of N integers. 
+Count the number of elements that have at least 1 elements greater than itself.
+
+class Solution:
+    # @param A : list of integers
+    # @return an integer
+    def solve(self, A):
+        Max = max(A)
+        count = 0
+        for i in range(len(A)):
+            if A[i]<Max:
+                count+=1
+        return count
+            
