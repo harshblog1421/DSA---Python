@@ -1,0 +1,23 @@
+Given an integer array A, find if an integer p exists in the array such that the number of integers greater than p in the array equals p.
+
+class Solution:
+    # @param A : list of integers
+    # @return an integer
+    def solve(self, A):
+        A.sort(reverse=True)
+        count = 0
+        if A[0] == 0:
+            return 1
+
+        else:
+            for i in range(1,len(A)):
+                if A[i]!=A[i-1]:
+                    count = i
+
+                if count==A[i]:
+                    return 1
+                    
+            return -1
+
+
+        
