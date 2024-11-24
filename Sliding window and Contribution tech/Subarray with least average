@@ -1,0 +1,27 @@
+Given an array A of size N, find the subarray of size B with the least average.
+
+Code:
+class Solution:
+    # @param A : list of integers
+    # @param B : integer
+    # @return an integer
+    def solve(self, A, B):
+        index = 0
+        sum1 = 0
+
+        for i in range(B):
+            sum1+=A[i]
+
+        ans = sum1
+
+        i = 1
+        j = B
+        while j<len(A):
+            sum1  = sum1 + A[j] - A[i-1]
+            if sum1 <ans:
+                ans = sum1
+                index = i
+            i+=1
+            j+=1
+
+        return index
