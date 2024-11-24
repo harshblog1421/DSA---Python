@@ -1,0 +1,18 @@
+You are given two matrices A & B of same size, you have to return another matrix which is the sum of A and B.
+Note: Matrices are of same size means the number of rows and number of columns of both matrices are equal.
+
+Code:
+
+class Solution:
+    # @param A : list of list of integers
+    # @param B : list of list of integers
+    # @return a list of list of integers
+    def solve(self, A, B):
+        N = len(A)
+        M = len(A[0])
+        C = [[0]*M for _ in range(N)]
+
+        for i in range(len(A)):
+            for j in range(len(A[i])):
+                C[i][j] = A[i][j] +B[i][j]
+        return C
