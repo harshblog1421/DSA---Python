@@ -1,0 +1,15 @@
+Given an integer array A of size N and an integer B, you have to return the same array after rotating it B times towards the right.
+
+Code:
+class Solution:
+    # @param A : list of integers
+    # @param B : integer
+    # @return a list of integers
+    def solve(self, A, B):
+        n = len(A)
+        for i in range(B):
+            temp = A[n-1]
+            for j in range(n-2,-1,-1):
+                A[j+1]= A[j]
+            A[0] = temp
+        return A
