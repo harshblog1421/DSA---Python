@@ -14,5 +14,6 @@ class Solution:
     # @param A : string
     # @return a strings
     def solve(self, A):
-        B = A.split()
-        print(A)
+        X = A.split()
+        C = X[::-1]
+        return ' '.join(C)
