@@ -1,0 +1,13 @@
+
+class Solution:
+    # @param A : list of list of integers
+    # @return a list of integers
+    def solve(self, A):
+        list1 = []
+        for i in range(len(A)):
+            sum1 = 0
+            for j in range(len(A[i])):
+                sum1+=A[i][j]
+            list1.append(sum1)
+
+        return list1
