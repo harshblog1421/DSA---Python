@@ -5,14 +5,16 @@ A subarray sum denotes the sum of all the elements of that subarray.
 
 Note : Be careful of integer overflow issues while calculations. Use appropriate datatypes
 
-Code:
 class Solution:
     # @param A : list of integers
-     # @return an long
+    # @return an long
     def subarraySum(self, A):
-        ans = 0
-        for i in range(0,len(A)):
-            contribution = A[i]*(i+1)*(len(A)-i)
-            ans+=contribution
+        ans = 0  # Initialize the answer variable
+
+        # Traverse each element in the array
+        for i in range(0, len(A)):
+            # Calculate the contribution of each element to the subarray sum
+            contribution = A[i] * (i + 1) * (len(A) - i)
+            ans += contribution  # Add the contribution to the total sum
         
-        return ans
+        return ans  # Return the total sum of all subarray sums
