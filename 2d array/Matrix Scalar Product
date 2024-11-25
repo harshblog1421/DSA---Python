@@ -7,6 +7,9 @@ class Solution:
     # @return a list of list of integers
     def solve(self, A, B):
         for i in range(len(A)):
+#iterate for rows
             for j in range(len(A[i])):
+            #iterate for columns
                 A[i][j] = B*A[i][j]
+               # multiply each element of matrix with B
         return A
