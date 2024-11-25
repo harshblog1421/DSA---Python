@@ -6,14 +6,17 @@ Code:
 
 class Solution:
     # @param A : string
-     # @return an long
+    # @return an integer
     def solve(self, A):
         total = 0
         count = 0
-        for i in range(len(A)):
-            if A[i]=="A":
-                count+=1
 
-            elif A[i]=="G":
-                total+=count
+        # Loop through the string and count occurrences of 'A' and 'G'
+        for i in range(len(A)):
+            if A[i] == "A":
+                count += 1  # Increase count when 'A' is found
+            elif A[i] == "G":
+                total += count  # Add the number of 'A's before 'G'
+
         return total
+
