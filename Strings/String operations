@@ -6,25 +6,27 @@ Replace each vowel with '#'.
 You are given a string A of size N consisting of lowercase and uppercase alphabets. Return the resultant string after applying the above operations.
 
 NOTE: 'a' , 'e' , 'i' , 'o' , 'u' are defined as vowels.
-
-Code:
 class Solution:
     # @param A : string
-    # @return a strings
+    # @return a string
     def solve(self, A):
+        # Concatenate the string with itself
+        B = A + A
         
-        B = A+A
-
+        # Initialize an empty list to store the resultant string
         C = []
-
+        
+        # Iterate through the string B
         for i in range(len(B)):
-            if ord(B[i])>=65 and ord(B[i])<=90:
+            # Skip uppercase letters
+            if 65 <= ord(B[i]) <= 90:
                 pass
-
-            elif B[i] in ("a",'e','i','o','u'):
+            # Replace vowels with '#'
+            elif B[i] in ("a", 'e', 'i', 'o', 'u'):
                 C.append("#")
-
-            elif ord(B[i])>=97 and ord(B[i])<=122:
+            # Append lowercase letters to the result
+            elif 97 <= ord(B[i]) <= 122:
                 C.append(B[i])
-
+        
+        # Return the transformed string
         return ''.join(C)
