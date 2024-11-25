@@ -1,14 +1,14 @@
 def insertion_sort(arr):
     n = len(arr)
-    for i in range(1, n):
-        # Pick the element to be inserted
-        key = arr[i]
+    for i in range(1, n):  # Start from the second element
+        key = arr[i]  # The element to be inserted
         j = i - 1
 
-        # Move elements that are greater than 'key' one position ahead
+        # Move elements of arr[0..i-1] that are greater than key, one position ahead
         while j >= 0 and arr[j] > key:
             arr[j + 1] = arr[j]
             j -= 1
 
-        # Place the key element in the correct position
+        # Insert the key element in its correct position
         arr[j + 1] = key
+
