@@ -3,15 +3,17 @@ The cost of this operation is the sum of all elements in the array present befor
 
 Find the minimum cost to remove all elements from the array.
 
-Code:
 class Solution:
     # @param A : list of integers
     # @return an integer
     def solve(self, A):
         N = len(A)
-        cost = 0
-        A.sort(reverse=True)
-        for i  in range(N):
-            cost+=A[i]*(i+1)
+        cost = 0  # Variable to track the total cost
+        A.sort(reverse=True)  # Sort the array in descending order
+        
+        # Calculate the cost for removing each element
+        for i in range(N):
+            cost += A[i] * (i + 1)  # The cost is the element times its position
+        
+        return cost  # Return the total cost
 
-        return 
