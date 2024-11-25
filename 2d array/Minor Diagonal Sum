@@ -7,18 +7,25 @@ class Solution:
     # @param A : tuple of list of integers
     # @return an integer
     def solve(self, A):
-        # Get the size of the square matrix
+        # Get the size of the square matrix (number of rows or columns)
         N = len(A)
         # Initialize row index (i) to 0 and column index (j) to N-1
         i = 0
         j = N - 1
-        # Initialize the sum of anti-diagonal elements
+        # Initialize a variable to store the sum of the anti-diagonal elements
         sum1 = 0
-        # Traverse the anti-diagonal elements
+        
+        # Traverse the matrix along its anti-diagonal
         while i < N and j >= 0:
             # Add the current anti-diagonal element to the sum
             sum1 += A[i][j]
-            i += 1  # Move to the next row
-            j -= 1  # Move to the previous column
-        # Return the sum of the anti-diagonal
+            # Move to the next row
+            i += 1
+            # Move to the previous column
+            j -= 1
+        
+        # Return the computed sum of the anti-diagonal elements
         return sum1
+
+
+
