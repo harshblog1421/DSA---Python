@@ -4,21 +4,22 @@ class Solution:
     # @param A : list of integers
     # @return an integer
     def solve(self, A):
-        
-        B = set(A)
-        Max = -10**18
-        Max_2 = -10**18
+        B = set(A)  # Remove duplicates
+        Max = -10**18  # Initialize maximum
+        Max_2 = -10**18  # Initialize second maximum
 
-        if len(B)<2:
+        # If there are less than 2 unique elements, return -1
+        if len(B) < 2:
             return -1
 
         else:
             for i in range(len(A)):
-                if A[i]>Max:
+                # Update max and second max
+                if A[i] > Max:
                     Max_2 = Max
                     Max = A[i]
-
-                elif Max_2<A[i]<Max:
+                elif Max_2 < A[i] < Max:
                     Max_2 = A[i]
 
         return Max_2
+
