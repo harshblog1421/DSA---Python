@@ -5,32 +5,36 @@ class Solution:
     # @param A : list of list of integers
     # @return a list of list of integers
     def diagonal(self, A):
+        # Get the number of rows in the matrix
         n = len(A)
+        # Get the number of columns in the matrix
         m = len(A[0])
-        B = [[0]*n for _ in range(2*n -1)]
+        # Initialize the result matrix B with zeros, of size (2*n - 1) x n
+        B = [[0]*n for _ in range(2*n - 1)]
 
-        
+        # Process the upper triangle of the matrix, including the main diagonal
         for c in range(len(A)):
-            i = 0
-            j = c
-            while i<n and j>=0:
-                B[i+j][n-1-j] = A[i][j]
-                i+=1
-                j-=1
+            i = 0  # Row index starts at 0
+            j = c  # Column index starts at c
+            while i < n and j >= 0:
+                # Place the element of A into the appropriate position in B
+                B[i + j][n - 1 - j] = A[i][j]
+                i += 1  # Move down the row
+                j -= 1  # Move left in the column
 
-        for k in range(1,len(A)):
-            i = k
-            j = m-1
+        # Process the lower triangle of the matrix (below the main diagonal)
+        for k in range(1, len(A)):
+            i = k  # Row index starts at k
+            j = m - 1  # Column index starts at the last column
+            while i < n and j >= 0:
+                # Place the element of A into the appropriate position in B
+                B[i + j][n - 1 - j] = A[i][j]
+                i += 1  # Move down the row
+                j -= 1  # Move left in the column
 
-            while i<n and j>=0:
-                B[i+j][n-1-j] = A[i][j]
-                i+=1
-                j-=1
-        
-         # Reverse each row in B
+        # Reverse each row in B for the final output
         for k in range(len(B)):
             B[k] = B[k][::-1]
 
+        # Return the resulting matrix B
         return B
-
-        
