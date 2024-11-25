@@ -7,19 +7,20 @@ Only argument given is string S.
 Output
 Return a single integer X mod 10003, here X is the number of Amazing Substrings in given the string.
 
-Code:
 class Solution:
     # @param A : string
     # @return an integer
     def solve(self, A):
+        # Initialize the count of amazing substrings
         count = 0
+        # Define the set of vowels
         vowels = set("aeiouAEIOU")
+        
+        # Loop through each character in the string
         for i in range(len(A)):
+            # If the character is a vowel, count the substrings starting from here
             if A[i] in vowels:
-                count+=len(A) - i
-        return count%10003
-
-
-            
-
-
+                count += len(A) - i
+        
+        # Return the count modulo 10003
+        return count % 10003
