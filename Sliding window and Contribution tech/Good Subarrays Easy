@@ -4,21 +4,32 @@ Given an array of integers A, a subarray of an array is said to be good if it fu
 Your task is to find the count of good subarrays in A.
 
 class Solution:
-    # @param A : integer
+    # @param A : list of integers
     # @param B : integer
-    # @param C : list of integers
     # @return an integer
-    def maxSubarray(self, A, B, C):
-        max_sum = 0  # Initialize max sum as 0
+    def solve(self, A, B):
+        # Initialize a prefix sum array
+        psum = [0]*len(A)
+        psum[0] = A[0]
+        
+        # Calculate prefix sum for the array
+        for i in range(1, len(A)):
+            psum[i] = psum[i-1] + A[i]
 
-        # Iterate through the array to find subarrays
-        for i in range(len(C)):
-            sub_sum = 0
-            # Sum each subarray and check if the sum exceeds B
-            for j in range(i, len(C)):
-                sub_sum += C[j]
-                if sub_sum > B:  # Stop if sum exceeds B
-                    break
-                max_sum = max(max_sum, sub_sum)  # Update max sum if current subarray has higher sum
+        count = 0
+        # Iterate through all possible subarrays
+        for l in range(len(A)):
+            for r in range(l, len(A)):
+                sub_sum = 0
+                # Calculate subarray sum using prefix sum
+                if l == 0:
+                    sub_sum = psum[r]
+                else:
+                    sub_sum = psum[r] - psum[l-1]
+                
+                # Check the conditions for good subarray (length and sum conditions)
+                if sub_sum < B and (r - l + 1) % 2 == 0 or sub_sum > B and (r - l + 1) % 2 != 0:
+                    count += 1
+            
+        return count
 
-        return max_sum
