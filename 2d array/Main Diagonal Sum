@@ -9,5 +9,5 @@ class Solution:
     def solve(self, A):
         sum1 = 0
         for i in range(len(A)):
-            sum1 += A[i][i]
+            sum1 += A[i][i]  # diagonal have same row and column number i.e, i and j
         return sum1
