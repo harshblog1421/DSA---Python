@@ -1,6 +1,6 @@
 Given an array A of length N, return the subarray from B to C.
-Code:
 
+Code:
 class Solution:
     # @param A : list of integers
     # @param B : integer
@@ -8,6 +8,9 @@ class Solution:
     # @return a list of integers
     def solve(self, A, B, C):
         subarray = []
-        for i in range(B,C+1):
+
+        # Append elements from index B to C to the subarray
+        for i in range(B, C + 1):
             subarray.append(A[i])
+
         return subarray
